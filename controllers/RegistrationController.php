@@ -44,7 +44,7 @@ class RegistrationController
             include ROOT.'/views/registration/AutorisationView.php';
         }
     }
-    public function actionAutorisation() {
+    public function actionAuthorization() {
         $loginEmail='';
         $loginPassword='';
         if(isset($_POST['submit_auto'])) {
