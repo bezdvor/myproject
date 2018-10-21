@@ -8,10 +8,10 @@
 
 class Registration
 {
-    public static function addUser($id = NULL, $login, $email, $password) {
+    public static function addUser($id = NULL, $name, $email, $password) {
         $conn = Db::getConnection();
         $sql = "INSERT INTO projuser.user (id, name, email, password) 
-				VALUES ('$id','$login','$email','$password')";
+				VALUES ('$id','$name','$email','$password')";
         return $conn->query($sql);
     }
     public static function checkUser($email) {

@@ -33,7 +33,7 @@ class RegistrationController
             if(!$errors) {
                 $id = time() . rand(0,1000000000);
                 $isRegistered = Registration::addUser($id, $name, $email, $password);
-                mail('sasha@gmail.com', 'your registration', "http://dbweb.ru/registration/confirm/$id");
+                mail('sasha@gmail.com', 'your registration', "http://myproject.com/registration/confirm/$id");
             }
 
         }

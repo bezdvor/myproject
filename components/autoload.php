@@ -9,7 +9,7 @@ spl_autoload_register(function ($class){
    $paths = array(
     '/components/',
     '/controllers/',
-    'models'
+    '/models/',
    );
    foreach ($paths as $path){
        $file = ROOT . $path . $class . '.php';

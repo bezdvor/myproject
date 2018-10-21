@@ -11,7 +11,7 @@ class Article
     public static function getArticles($start, $countOnPage){
         $conn = Db::getConnection();
         $sql = "SELECT article.id, article.name, article.text,article.image, article.author, article.time
-    from article order by id limit $start, $countOnPage";
+    from article order by id";
         $result = $conn->query($sql);
         $data = $result->fetch_all(MYSQLI_ASSOC);
         return $data;

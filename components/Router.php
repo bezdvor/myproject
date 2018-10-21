@@ -22,7 +22,7 @@ class Router
     public function run() {
         $uri = $this->getUri();
         include ROOT.'/views/layouts/header.php';
-        echo '<main>';
+        echo '<div class="container" style="margin-top: 80px;"><main class="row">';
         foreach($this->routes as $uriPattern => $path){
             if (preg_match("~$uriPattern~", $uri)){
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri); // 'news/list/12'
@@ -31,16 +31,12 @@ class Router
                 $controllerName = ucfirst($controllerName); // NewsController
                 $actionName = 'action' . ucfirst(array_shift($segments)); //action . List [12]
                 $controllerFile = ROOT . '/controllers/' . $controllerName . '.php';
-                // if (file_exists($controllerFile)) {
-                // include_once($controllerFile);
-                // }
                 $controllerObject = new $controllerName;
                 $result = $controllerObject->$actionName($segments);
                 break;
             }
         }
-
-        echo '</main>';
+        echo '</main></div>';
         include ROOT.'/views/layouts/footer.php';
     }
 }
