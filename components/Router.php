@@ -22,7 +22,7 @@ class Router
     public function run() {
         $uri = $this->getUri();
         include ROOT.'/views/layouts/header.php';
-        echo '<div class="container" style="margin-top: 80px;"><main class="row">';
+        echo '<div class="container d-block p-0"><main class="row">';
         foreach($this->routes as $uriPattern => $path){
             if (preg_match("~$uriPattern~", $uri)){
                 $internalRoute = preg_replace("~$uriPattern~", $path, $uri); // 'news/list/12'

@@ -1,9 +1,9 @@
         <div class="col-2">
             <aside>
-                <ul>
-                    <li><a href="/">All</a></li>
+                <ul class="list-group list-group-flush">
+                    <a href="/" class="list-group-item list-group-item-action list-group-item-primary">Все категории</a>
                     <? foreach($categories as $cat) { ?>
-                        <li><a href="/<?=$cat['id'];?>"><?=$cat['name'];?></a></li>
+                        <a href="/article/<?=$cat['id'];?>" class="list-group-item list-group-item-action list-group-item-primary"><?=$cat['name'];?></a>
                     <?}?>
                 </ul>
             </aside>
