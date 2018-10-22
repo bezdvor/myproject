@@ -40,4 +40,8 @@ class ArticleController
         }
         include ROOT . '/views/ArticleItemView.php';
     }
+    public function actionTop(){
+       $toparticle = Article::getArticlebyTop();
+       include ROOT. '/views/ArticleTop.php';
+    }
 }
