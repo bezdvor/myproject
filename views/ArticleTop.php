@@ -11,12 +11,16 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <? foreach($toparticle as $top) { ?>
-            <img src="<?=$top['image'];?>" alt="<?=$top['name'];?>">
-            <h3 class="h3"><?=$top['name'];?></h3>
-            <p><?=$top['text'];?></p>
-            <? } ?>
-        </div>
+            <div>
+                <?php
+                foreach ($toparticle as $top) { ?>
+                    <div class="col-12">
+                        <h3 class="h3"><?=$top['name'];?></h3>
+                        <img src="<?=$top['image'];?>" alt="<?=$top['name'];?>">
+                        <p><?=$top['text'];?></p>
+                    </div>
+                <?}?>
+            </div>
     </div>
 </div>
 </body>

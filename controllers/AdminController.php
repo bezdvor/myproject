@@ -11,13 +11,14 @@ class AdminController
     public function actionIndex()
     {
         if ($_POST['adminLogin'] === 'root' AND $_POST['adminPass'] === '111111') {
-//            $_SESSION['admin'] = 'root';
-//            include ROOT . '/views/admin/adminView.php';
-//            return;
-        }
-        if ($_SESSION['admin'] === 'root') {
+            $_SESSION['admin'] = 'root';
             include ROOT . '/views/admin/adminView.php';
-        } else {
+            return;
+        }
+//        if ($_SESSION['admin'] === 'root') {
+//            include ROOT . '/views/admin/adminView.php';
+//        }
+        else {
             include ROOT . '/views/admin/adminFormView.php';
         }
 

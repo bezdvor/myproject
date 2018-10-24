@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Alex
- * Date: 20.10.2018
- * Time: 22:53
- */
-
 class RegistrationController
 {
     private $user;
@@ -35,7 +28,6 @@ class RegistrationController
                 $isRegistered = Registration::addUser($id, $name, $email, $password);
                 mail('sasha@gmail.com', 'your registration', "http://myproject.com/registration/confirm/$id");
             }
-
         }
         if(isset($_SESSION['user_id'])){
             include ROOT.'/views/OrderView.php';
@@ -72,7 +64,5 @@ class RegistrationController
         } else {
             echo '<br><br><br><h1>Error! Try again!</h1><br><br><br>';
         }
-
-
     }
 }

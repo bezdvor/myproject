@@ -14,10 +14,19 @@
         </div>
     </div>
 </div>
+<div class="col-12">
 
+<?php
+$topic = new ArticleController();
+$topic = $topic->actionTop();
+ foreach ($topic as $top) { ?>
         <div class="col-12">
-            <iframe class="w-100 border-0" src="/views/ArticleTop.php">
-            </iframe>
+            <h3 class="h3"><?=$top['name'];?></h3>
+            <img src="<?=$top['image'];?>" alt="<?=$top['name'];?>">
+            <p><?=$top['text'];?></p>
+        </div>
+<? } ?>
+</div>
             <section class="card-group">
                 <? foreach($articles as $artic) { ?>
                     <div class="card m-2" style="min-width: 30%;">

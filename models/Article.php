@@ -72,6 +72,6 @@ where category_article.article_id=$id";
             $sql = "select * from article where top = 1";
             $rerult = $conn->query($sql);
             $data = $rerult->fetch_all(MYSQLI_ASSOC);
-            return $data[0];
+            return $data;
     }
 }
