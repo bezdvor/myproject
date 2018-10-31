@@ -1,0 +1,1 @@
+INSERT INTO projuser.blog (id, title, blogtext, image, author, time) VALUES (2147483647, 'lorem', 'lorem lorem', '', 'kolya', '2018-10-31 19:48:43');

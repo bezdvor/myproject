@@ -18,7 +18,7 @@ class Admin
             echo "File didn't upload";
         }
         $conn = Db::getConnection();
-        $sql = "INSERT INTO lesson7.blog (id, title, text, img)
+        $sql = "INSERT INTO projuser.blog (id, title, text, img)
 		VALUES (NULL, '$title', '$text', '$path')";
         return $conn->query($sql);
     }

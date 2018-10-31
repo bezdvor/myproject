@@ -1,0 +1,1 @@
+INSERT INTO projuser.comment (id, text, com_date, article_id, user_id, blog_id) VALUES (1, 'lorem 2', '2018-10-31 19:55:53', null, null, 2147483647);

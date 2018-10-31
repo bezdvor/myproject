@@ -1,18 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Alex
- * Date: 20.10.2018
- * Time: 22:55
- */
-
 class Registration
 {
-    public static function addUser($id = NULL, $name, $email, $password) {
+    public static function addUser($id, $name, $email, $password, $confirm) {
         $conn = Db::getConnection();
-        $sql = "INSERT INTO projuser.user (id, name, email, password) 
-				VALUES ('$id','$name','$email','$password')";
-        return $conn->query($sql);
+        $sql = "INSERT INTO projuser.user (user.id, user.name, user.email, user.password, user.confirm)
+        VALUES ('$id' , '$name' , '$email' , '$password', $confirm)";
+        $result = $conn->query($sql);
+        return $result;
     }
     public static function checkUser($email) {
         $conn = Db::getConnection();
@@ -22,7 +16,7 @@ class Registration
     }
     public static function checkAutorisation($email, $password) {
         $conn = Db::getConnection();
-        $sql = "SELECT * from projuser.user where email='$email' AND password='$password' AND confirm=1";
+        $sql = "SELECT * from projuser.user where email='$email' AND password='$password' AND projuser.user.confirm = 1";
         $result = $conn->query($sql);
         $data = $result->fetch_all(MYSQLI_ASSOC);
         if($result->num_rows > 0) {

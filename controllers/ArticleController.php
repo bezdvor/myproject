@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Alex
- * Date: 20.10.2018
- * Time: 11:25
- */
-
 class ArticleController
 {
     public function actionIndex($params){
@@ -33,15 +26,17 @@ class ArticleController
     }
     public function actionArticle($params){
         $id = $params[0];
-        $pageNumber = $params[1];
+        $pageNumber = intval($params[1]);
         $id = intval($id);
+        include ROOT . '/views/ArticleItemView.php';
         if ($id){
             $articles = Article::getArticleById($id);
         }
-        include ROOT . '/views/ArticleItemView.php';
+        include  ROOT.'/views/ArticleItemView.php';
     }
     public function actionTop(){
         $toparticle = Article::getArticlebyTop();
+        return $toparticle;
 //       include ROOT. '/views/ArticleTop.php';
     }
 }
