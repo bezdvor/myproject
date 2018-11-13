@@ -1,75 +1,213 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans|Merriweather');
 
 body {
-    margin-bottom: 10vh;
+    font-family: 'Merriweather', serif;
 }
 
-h1 {
-    text-align: center;
+a {
+    color: inherit;
 }
 
-.header {
-    background-color: yellow;
-    padding: 20px 10px;
+a:hover {
+    text-decoration: none;
+    color: #d2cfc4;
 }
 
-.header ul {
+#countview{
+    background-color: #9fcdff;
+}
+
+.activelike{
+    color: #6f42c1;
+}
+
+.likegreen{
+color: #28a745;
+}
+.likered{
+    color: #dc3545;
+}
+.viewblue{
+    color: #091629;
+}
+.allwrap {
+    padding: 0;
+}
+
+.topcat {
+    font-family: 'Alegreya Sans', sans-serif;
+    color: #d2cfc4;
+    font-size: 1.25rem;
+}
+
+.topcat a:hover {
+    color: #ffffff;
+}
+
+.logohouse {
+    background: no-repeat center center url("/logos/lighthouse_1.jpg");
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+.blueback {
     display: flex;
-    justify-content: space-around;
-    padding: 30px 0 0 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding-top: 1vh;
+    background-color: #091629;
 }
 
-.header li {
+.topSlogan {
+    background: #ff7f00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+
+}
+
+#slogan {
+    font-size: 2rem;
+    font-family: 'Merriweather', serif;
+    font-weight: 900;
+    background-color: #ff7f00;
+    padding-left: 1vw;
+}
+
+.toplinks {
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    font-family: 'Alegreya Sans', sans-serif;
+    color: #52525b;
+    font-size: 1.15rem;
     list-style-type: none;
 }
 
-.footer {
-    padding: 30px;
-    text-align: center;
-    background-color: gainsboro;
-}
-
-.container {
+.searchItem {
     display: flex;
-    padding: 15px;
-    flex-direction: row-reverse;
-    position: relative;
-}
-
-.categories {
-    width: 20%;
-    position: fixed;
-    left: 30px;
-    top: 150px;
-}
-
-.categories li {
-    list-style-type: none;
-}
-
-.content {
-    width: 80%;
-    padding: 0 20px;
-    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    padding: 1vw;
+    background-color: #ff7f00;
 }
 
-.content article {
-    width: 33%;
-    padding: 30px 0;
+.newswrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1vw;
+}
+.blogwrap{
+    flex-direction: column;
+    padding: 5%;
+    background-color: #f0ede2;
+    overflow: scroll;
+    text-overflow: ellipsis;
+    max-height: 2450px;
 }
 
+.blogItem{
+    margin: 10px;
+}
+
+.newsbody {
+    margin-left: 2.5%;
+    margin-top: 2%;
+    max-width: 46%;
+    height: 800px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    align-self: center;
+    background-color: #f0ede2;
+}
+
+.newsbody:hover {
+    box-shadow: 0 0 5px rgb(82, 82, 91);
+}
+
+.imgnewsdiv {
+    display: flex;
+    flex-flow: row;
+    align-items: flex-start;
+    height: 270px;
+    margin-bottom: 15px;
+}
+.itemImg{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.imgnews {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: top;
+}
+
+.newstextbody{
+    max-height: 50%;
+    overflow: hidden;
+    padding: 1%;
+}
+
+.newstitle {
+    font-size: 1.25rem;
+    color: #091629;
+    text-align: center;
+}
+.itemTitle {
+    font-size: 3rem;
+    color: #091629;
+    text-align: center;
+}
+
+p.newstext {
+    font-size: 0.75rem;
+    color: #091629;
+    text-overflow: ellipsis;
+    padding: 1vw;
+}
+p.itemText{
+    font-size: 1.25rem;
+}
+
+.btngreen{
+    width: 70px;
+}
+.btnered{
+width: 70px;
+}
+
+
+/*This is pagination section*/
 .pagination {
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
     padding: 20px 0 10px;
 }
 
 .pagination button {
     text-align: center;
+    border-radius: 5px;
     text-decoration: none;
     outline: none;
     display: inline-block;
@@ -142,79 +280,48 @@ h1 {
     color: rgb(51, 51, 51);
 }
 
-a {
-    text-decoration: none;
-}
-
-.form {
-    padding: 30px 100px 0 100px;
-}
-
-.form form {
-    width: 300px;
-    margin: auto;
-}
-
-.form input {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.errors {
-    text-align: center;
-}
-
-.blog {
-    width: 90%;
-    margin: auto;
-    padding: 50px 0;
-}
-
-.posts h2 {
-    background-color: black;
-    text-align: center;
-    color: white;
-    padding: 10px;
-}
-
-.posts p {
-    background-color: gray;
-    color: white;
-    margin-top: 10px;
-    padding: 10px;
-}
-
-.posts p:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-.posts p img {
-    float: left;
-    margin: 0 10px 10px 0;
-    width: 30%;
-}
-
-.comments {
-    padding: 10px 0;
-}
-
-.comments article {
-    padding: 10px 0;
-}
-
-.post-wrapper {
-    padding: 20px 0;
-}
-
 .footer_bottom {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 5vh; /*высота футера будет зависеть от высоты экрана*/
 }
-.cardMain:hover{
+
+.cardMain:hover {
     min-width: 30%;
-    box-shadow: 0 0 5px rgb(82, 82, 91); }
-.topNewsItem {background: #091629; color: #ffffff; position: absolute; left: 0px; padding: 10px; top: 20px; z-index: 2; border-top-right-radius: 20px;}
+    box-shadow: 0 0 5px rgb(82, 82, 91);
+}
+
+.topNewsItem {
+    background: #091629;
+    color: #ffffff;
+    position: absolute;
+    left: 0px;
+    padding: 10px;
+    top: 20px;
+    z-index: 2;
+    border-top-right-radius: 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .toplinks {
+        font-size: 1rem;
+    }
+    .newsbody{
+        max-width: 96%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .blueback {
+        flex-direction: column;
+    }
+
+    .newsbody {
+        max-width: 96%;
+    }
+
+    .toplinks {
+        font-size: 1rem;
+    }
+}

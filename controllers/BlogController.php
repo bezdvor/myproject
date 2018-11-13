@@ -10,7 +10,7 @@ class BlogController
 {
 public function actionList(){
     $data = Blog::getBlogPosts();
-    include ROOT.'/views/BlogView.php';
+return $data;
 }
 public function actionAddComment($blog_id){
     $blog_id=$blog_id[0];

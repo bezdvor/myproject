@@ -10,21 +10,32 @@ class Article
 {
     public static function getArticles($start, $countOnPage){
         $conn = Db::getConnection();
-        $sql = "SELECT article.id, article.name, article.text,article.image, article.author, article.time
+        $sql = "SELECT article.id, article.name, article.text,article.image, article.author, article.time, article.`like`, article.dislike, article.showcount
     from projuser.article order by id limit $start, $countOnPage";
         $result = $conn->query($sql);
         $data = $result->fetch_all(MYSQLI_ASSOC);
         return $data;
     }
+
+    public static function getArticlesTime($start, $countOnPage){
+        $conn =Db::getConnection();
+        $sql ="select article.id, article.name, article.text, article.image, article.author, article.time from projuser.article order by article.time desc limit $start, $countOnPage";
+        $result = $conn->query($sql);
+        $data = $result->fetch_all(MYSQLI_ASSOC);
+        return $data;
+
+    }
+
     public static function getArticlesByCategoryId($id, $start, $countOnPage){
         $id = intval($id);
         if ($id){
             $conn = Db::getConnection();
-            $sql = "select article.id, article.name, article.text, article.image, article.time, article.author as article_name
-        from article inner join category_article on article.id = category_article.article_id
-        inner join category on category_article.category_id = category.id
-        where category_article.category_id=$id
-        order by article.id
+            $sql = "SELECT article.id,image,text,article.name,author,time,category.name AS category_name
+			FROM article
+			INNER JOIN category_article ON article.id = category_article.article_id
+			INNER JOIN category ON category_article.category_id = category.id
+			WHERE category_article.category_id=$id
+			ORDER BY article.id
         limit $start, $countOnPage";
             $result = $conn->query($sql);
             $data = $result->fetch_all(MYSQLI_ASSOC);
@@ -73,5 +84,12 @@ where category_article.article_id=$id";
             $rerult = $conn->query($sql);
             $data = $rerult->fetch_all(MYSQLI_ASSOC);
             return $data;
+    }
+    public static function getSeach($search){
+        $conn = Db::getConnection();
+        $sql = "select * from article where name like '%$search%'";
+        $result = $conn->query($sql);
+        $data = $result->fetch_all(MYSQLI_ASSOC);
+        return $data;
     }
 }

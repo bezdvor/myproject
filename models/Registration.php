@@ -1,10 +1,10 @@
 <?php
 class Registration
 {
-    public static function addUser($id, $name, $email, $password, $confirm) {
+    public static function addUser($id = NULL, $login, $email, $password) {
         $conn = Db::getConnection();
-        $sql = "INSERT INTO projuser.user (user.id, user.name, user.email, user.password, user.confirm)
-        VALUES ('$id' , '$name' , '$email' , '$password', $confirm)";
+        $sql = "INSERT INTO projuser.user (user.id, user.name, user.email, user.password)
+        VALUES ('$id' , '$login' , '$email' , '$password')";
         $result = $conn->query($sql);
         return $result;
     }
@@ -16,7 +16,7 @@ class Registration
     }
     public static function checkAutorisation($email, $password) {
         $conn = Db::getConnection();
-        $sql = "SELECT * from projuser.user where email='$email' AND password='$password' AND projuser.user.confirm = 1";
+        $sql = "SELECT * from projuser.user where email='$email' AND password='$password' AND confirm = 1";
         $result = $conn->query($sql);
         $data = $result->fetch_all(MYSQLI_ASSOC);
         if($result->num_rows > 0) {
@@ -35,8 +35,9 @@ class Registration
         return strlen($password) >= 6;
     }
     public static function confirm($id) {
+        $id = intval($id);
         $conn = Db::getConnection();
-        $sql = "UPDATE projuser.user SET confirm = 1 WHERE id=$id";
+        $sql = "UPDATE projuser.user SET user.confirm = 1 WHERE user.id=$id";
         return $conn->query($sql);
 
     }

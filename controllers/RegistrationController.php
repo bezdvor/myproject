@@ -6,7 +6,7 @@ class RegistrationController
         $name ='';
         $email ='';
         $password ='';
-        $confirm = 0;
+//        $confirm = 0;
         if(isset($_POST['submit'])) {
             $name=$_POST['text'];
             $email=$_POST['email'];
@@ -26,7 +26,7 @@ class RegistrationController
             }
             if(!$errors) {
                 $id = time() . rand(0,1000000000);
-                $isRegistered = Registration::addUser($id, $name, $email, $password, $confirm);
+                $isRegistered = Registration::addUser($id, $name, $email, $password);
                 mail('sasha@gmail.com', 'your registration', "http://myproject.com/registration/confirm/$id");
             }
         }

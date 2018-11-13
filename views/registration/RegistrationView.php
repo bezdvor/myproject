@@ -13,7 +13,7 @@
             <input type="text" name="text" placeholder="Login" value=<?=$name?>><br>
             <input type="email" name="email" placeholder="Email" value=<?=$email?>><br>
             <input type="password" name="password" placeholder="Password" value=<?=$password?>><br>
-            <input type="submit" name="submit" value="Отправить"><br>
+            <input type="submit" name="submit" value="Submit"><br>
         </form>
     <? } ?>
 </div>
