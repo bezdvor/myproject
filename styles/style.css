@@ -46,7 +46,7 @@ color: #28a745;
 }
 
 .logohouse {
-    background: no-repeat center center url("/logos/lighthouse_1.jpg");
+    background: no-repeat center center url("/logos/lighthouseLogoNew.svg");
     background-size: cover;
     max-width: 100%;
     height: auto;
@@ -172,6 +172,7 @@ color: #28a745;
     text-align: center;
 }
 .itemTitle {
+    font-family: 'Merriweather', serif;
     font-size: 3rem;
     color: #091629;
     text-align: center;

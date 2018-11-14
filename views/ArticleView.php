@@ -133,7 +133,14 @@
             </div>
         <? } ?>
     </div>
-    <div class="col-md-4 col-sm-12">
+    <div class="col-md-4 col-sm-12 p-3 border-left">
+        <div class="topNewsItem">Lorem lorem fresh comment</div>
+        <div style="max-width: 200px; margin: auto; margin-top: 70px;">
+            <img class="img-fluid" style="border-radius: 50%;" src="/logos/lady-with-glasses-smiling.jpg" alt="#">
+        </div>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, neque, odio. Debitis fugit illo laudantium, mollitia perferendis quia reprehenderit similique tempore? Cumque ea modi mollitia optio perspiciatis placeat possimus quia! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam blanditiis corporis, culpa doloremque eaque ex exercitationem expedita id ipsam labore laudantium nemo nobis quaerat quasi quia reiciendis similique soluta ullam.</p>
+
     </div>
 </section>
 <div class="row no-gutters">

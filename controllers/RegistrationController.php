@@ -1,50 +1,55 @@
 <?php
+
 class RegistrationController
 {
     private $user;
-    public function actionRegister() {
-        $name ='';
-        $email ='';
-        $password ='';
+
+    public function actionRegister()
+    {
+        $name = '';
+        $email = '';
+        $password = '';
 //        $confirm = 0;
-        if(isset($_POST['submit'])) {
-            $name=$_POST['text'];
-            $email=$_POST['email'];
-            $password=$_POST['password'];
+        if (isset($_POST['submit'])) {
+            $name = $_POST['text'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
             $errors = array();
-            if(!Registration::checkLogin($name)){
-                $errors[]='Login is incorrect';
+            if (!Registration::checkLogin($name)) {
+                $errors[] = 'Login is incorrect';
             }
-            if(!Registration::checkEmail($email)){
-                $errors[]='Email is incorrect';
+            if (!Registration::checkEmail($email)) {
+                $errors[] = 'Email is incorrect';
             }
-            if(!Registration::checkPassword($password)){
-                $errors[]='Password is incorrect';
+            if (!Registration::checkPassword($password)) {
+                $errors[] = 'Password is incorrect';
             }
-            if(!Registration::checkUser($email)){
-                $errors[]='This email is allready exist';
+            if (!Registration::checkUser($email)) {
+                $errors[] = 'This email is allready exist';
             }
-            if(!$errors) {
-                $id = time() . rand(0,1000000000);
+            if (!$errors) {
+                $id = time() . rand(0, 1000000000);
                 $isRegistered = Registration::addUser($id, $name, $email, $password);
                 mail('sasha@gmail.com', 'your registration', "http://myproject.com/registration/confirm/$id");
             }
         }
-        if(isset($_SESSION['user_id'])){
-            include ROOT.'/views/OrderView.php';
+        if (isset($_SESSION['user_id'])) {
+            include ROOT . '/views/OrderView.php';
         } else {
-            include ROOT.'/views/registration/RegistrationView.php';
-            include ROOT.'/views/registration/AuthorizationView.php';
+            include ROOT . '/views/registration/RegistrationView.php';
+            include ROOT . '/views/registration/AuthorizationView.php';
         }
     }
-    public function actionAuthorization() {
-        $loginEmail='';
-        $loginPassword='';
-        if(isset($_POST['submit_auto'])) {
-            $loginEmail=$_POST['email_auto'];
-            $loginPassword=$_POST['password_auto'];
+
+    public function actionAuthorization()
+    {
+        $loginEmail = '';
+        $loginPassword = '';
+        if (isset($_POST['submit_auto'])) {
+            $loginEmail = $_POST['email_auto'];
+            $loginPassword = $_POST['password_auto'];
             $user = Registration::checkAutorisation($loginEmail, $loginPassword);
-            if($user) {
+            if ($user) {
                 $_SESSION['user_id'] = $user['id'];
                 $this->user = '';
             } else {
@@ -53,14 +58,18 @@ class RegistrationController
         }
         $this->actionRegister();
     }
-    public function actionDestroy() {
+
+    public function actionDestroy()
+    {
         unset($_SESSION['user_id']);
         session_destroy();
         $this->actionRegister();
     }
-    public function actionConfirm($id) {
+
+    public function actionConfirm($id)
+    {
         $id = $id[0];
-        if(Registration::confirm($id)) {
+        if (Registration::confirm($id)) {
             echo '<br><br><br><h1>You can login using your email and password</h1><br><br><br>';
         } else {
             echo '<br><br><br><h1>Error! Try again!</h1><br><br><br>';

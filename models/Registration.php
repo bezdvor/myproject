@@ -1,10 +1,10 @@
 <?php
 class Registration
 {
-    public static function addUser($id = NULL, $login, $email, $password) {
+    public static function addUser($id = NULL, $name, $email, $password) {
         $conn = Db::getConnection();
         $sql = "INSERT INTO projuser.user (user.id, user.name, user.email, user.password)
-        VALUES ('$id' , '$login' , '$email' , '$password')";
+        VALUES ('$id' , '$name' , '$email' , '$password')";
         $result = $conn->query($sql);
         return $result;
     }

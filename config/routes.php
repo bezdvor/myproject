@@ -9,7 +9,8 @@ return array(
     '/search' => 'article/search', //поиск
     '/blog' => 'blog/list', //листинг всех блогов
     '/admin' => 'admin/index', //вход в панель администратора
-    '/admin/addPost' => 'admin/addPost', //добавление статьи в новости
+    '/admin/addPost' => 'admin/addPost', //добавление в блоги
+    '/admin/addArticle' => 'admin/addArticle', //добавление статьи в новости
     '/registration' => 'registration/register', //регистрация пользователя
     '/delete' => 'article/delete', //добавление статьи в новости
     '/login' => 'registration/authorization',//авторизация пользователя на сайте

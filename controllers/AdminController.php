@@ -15,10 +15,9 @@ class AdminController
             include ROOT . '/views/admin/adminView.php';
             return;
         }
-//        if ($_SESSION['admin'] === 'root') {
-//            include ROOT . '/views/admin/adminView.php';
-//        }
-        else {
+        if ($_SESSION['admin'] === 'root') {
+            include ROOT . '/views/admin/adminView.php';
+        } else {
             include ROOT . '/views/admin/adminFormView.php';
         }
 
@@ -44,5 +43,30 @@ class AdminController
         }
         $this->actionIndex();
 
+    }
+
+    public function actionAddArticle()
+    {
+        $id = time() . rand(0, 1000000000);
+        $arttitle = '';
+        $artauthor = '';
+        $arttext = '';
+        $arttop = '';
+        if (isset($_POST['artsubmit'])) {
+            $userfile = array(
+                'name' => $_FILES['artfile']['name'],
+                'tmp_name' => $_FILES['artfile']['tmp_name']
+            );
+            $arttitle = $_POST['arttitle'];
+            $artauthor = $_POST['artauthor'];
+            $arttext =$_POST['arttext'];
+            $arttop =$_POST['arttop'];
+            if(Admin::addArticle($id, $arttitle, $artauthor, $arttext, $arttop, $userfile)){
+echo '<h1>Article has been added</h1>';
+            } else {
+                echo '<h1>Error to add article</h1>';
+            }
+        }
+        $this->actionIndex();
     }
 }
